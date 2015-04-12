@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Pankki implements PankkiInterface {
+public class Pankki implements NewInterface {
 
     private KirjanpitoInterface kirjanpito;
 
@@ -13,6 +13,7 @@ public class Pankki implements PankkiInterface {
         kirjanpito = k;
     }
 
+    @Override
     public boolean tilisiirto(String nimi, int viitenumero, String tililta, String tilille, int summa) {
         kirjanpito.lisaaTapahtuma("tilisiirto: tililtä " + tilille + " tilille " + tilille
                 + " viite " + viitenumero + " summa " + summa + "e");
